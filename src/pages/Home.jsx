@@ -149,13 +149,13 @@ export default function Home() {
           <div className="animate-fade-up delay-3 flex flex-col sm:flex-row gap-3 mb-10">
             <Link
               to="/prijzen"
-              className="inline-flex items-center justify-center bg-green text-bg font-semibold text-sm px-6 py-3 rounded-lg hover:bg-green/90 transition-colors"
+              className="inline-flex items-center justify-center bg-green text-bg font-semibold text-sm px-6 py-3 rounded-lg hover:bg-green/90 transition-colors w-full sm:w-auto"
             >
               Bekijk onze plannen
             </Link>
             <Link
               to="/contact"
-              className="inline-flex items-center justify-center border border-border2 text-cream2 font-medium text-sm px-6 py-3 rounded-lg hover:border-green/40 hover:text-cream transition-colors"
+              className="inline-flex items-center justify-center border border-border2 text-cream2 font-medium text-sm px-6 py-3 rounded-lg hover:border-green/40 hover:text-cream transition-colors w-full sm:w-auto"
             >
               Offerte aanvragen →
             </Link>
@@ -225,16 +225,16 @@ export default function Home() {
               Vraag een vrijblijvende offerte aan — we reageren binnen 24u.
             </p>
           </div>
-          <div className="flex flex-col sm:flex-row gap-3 shrink-0">
+          <div className="flex flex-col sm:flex-row gap-3 shrink-0 w-full sm:w-auto">
             <Link
               to="/contact"
-              className="inline-flex items-center justify-center bg-green text-bg font-semibold text-sm px-6 py-3 rounded-lg hover:bg-green/90 transition-colors"
+              className="inline-flex items-center justify-center bg-green text-bg font-semibold text-sm px-6 py-3 rounded-lg hover:bg-green/90 transition-colors w-full sm:w-auto"
             >
               Offerte aanvragen
             </Link>
             <Link
               to="/prijzen"
-              className="inline-flex items-center justify-center border border-border2 text-cream2 font-medium text-sm px-6 py-3 rounded-lg hover:border-green/40 hover:text-cream transition-colors"
+              className="inline-flex items-center justify-center border border-border2 text-cream2 font-medium text-sm px-6 py-3 rounded-lg hover:border-green/40 hover:text-cream transition-colors w-full sm:w-auto"
             >
               Bekijk prijzen
             </Link>
