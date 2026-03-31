@@ -35,61 +35,64 @@ export default function Navbar() {
   }, [open]);
 
   return (
-    <header
-      className={`fixed top-0 inset-x-0 z-50 transition-all duration-300 ${scrolled ? "bg-bg/90 backdrop-blur-md border-b border-border" : ""}`}
-    >
-      <nav className="max-w-7xl mx-auto px-3 sm:px-4 h-16 flex items-center justify-between">
-        <Link to="/" onClick={() => setOpen(false)}>
-          <Logo />
-        </Link>
-
-        {/* Desktop links */}
-        <ul className="hidden md:flex items-center gap-6 list-none m-0 p-0">
-          {links.map(({ to, label }) => (
-            <li key={to}>
-              <NavLink
-                to={to}
-                end={to === "/"}
-                className={({ isActive }) =>
-                  `text-sm font-medium transition-colors duration-200 ${isActive ? "text-green" : "text-cream2 hover:text-cream"}`
-                }
-              >
-                {label}
-              </NavLink>
-            </li>
-          ))}
-        </ul>
-
-        <Link
-          to="/contact"
-          className="hidden md:inline-flex items-center bg-green text-bg text-sm font-semibold px-4 py-2 rounded-lg hover:bg-green/90 transition-colors"
-        >
-          Offerte aanvragen
-        </Link>
-
-        {/* Hamburger */}
-        <button
-          className="md:hidden flex flex-col justify-center items-center gap-1.5 w-10 h-10"
-          onClick={() => setOpen((o) => !o)}
-          aria-label="Menu"
-        >
-          <span
-            className={`block w-5 h-0.5 bg-cream rounded transition-all duration-300 origin-center ${open ? "rotate-45 translate-y-2" : ""}`}
-          />
-          <span
-            className={`block w-5 h-0.5 bg-cream rounded transition-all duration-300 ${open ? "opacity-0 scale-x-0" : ""}`}
-          />
-          <span
-            className={`block w-5 h-0.5 bg-cream rounded transition-all duration-300 origin-center ${open ? "-rotate-45 -translate-y-2" : ""}`}
-          />
-        </button>
-      </nav>
-
-      {/* Mobile menu overlay */}
-      <div
-        className={`md:hidden fixed inset-0 top-16 bg-bg z-40 transition-all duration-300 ${open ? "opacity-100 pointer-events-auto" : "opacity-0 pointer-events-none"}`}
+    <>
+      <header
+        className={`fixed top-0 inset-x-0 z-50 transition-all duration-300 ${scrolled ? "bg-bg/90 backdrop-blur-md border-b border-border" : ""}`}
       >
-        <ul className="flex flex-col px-6 pt-2 list-none m-0 p-0">
+        <nav className="max-w-7xl mx-auto px-3 sm:px-4 h-16 flex items-center justify-between">
+          <Link to="/" onClick={() => setOpen(false)}>
+            <Logo />
+          </Link>
+
+          {/* Desktop links */}
+          <ul className="hidden md:flex items-center gap-6 list-none m-0 p-0">
+            {links.map(({ to, label }) => (
+              <li key={to}>
+                <NavLink
+                  to={to}
+                  end={to === "/"}
+                  className={({ isActive }) =>
+                    `text-sm font-medium transition-colors duration-200 ${isActive ? "text-green" : "text-cream2 hover:text-cream"}`
+                  }
+                >
+                  {label}
+                </NavLink>
+              </li>
+            ))}
+          </ul>
+
+          <Link
+            to="/contact"
+            className="hidden md:inline-flex items-center bg-green text-bg text-sm font-semibold px-4 py-2 rounded-lg hover:bg-green/90 transition-colors"
+          >
+            Offerte aanvragen
+          </Link>
+
+          {/* Hamburger */}
+          <button
+            className="md:hidden flex flex-col justify-center items-center gap-1.5 w-10 h-10"
+            onClick={() => setOpen((o) => !o)}
+            aria-label="Menu"
+          >
+            <span
+              className={`block w-5 h-0.5 bg-cream rounded transition-all duration-300 origin-center ${open ? "rotate-45 translate-y-2" : ""}`}
+            />
+            <span
+              className={`block w-5 h-0.5 bg-cream rounded transition-all duration-300 ${open ? "opacity-0 scale-x-0" : ""}`}
+            />
+            <span
+              className={`block w-5 h-0.5 bg-cream rounded transition-all duration-300 origin-center ${open ? "-rotate-45 -translate-y-2" : ""}`}
+            />
+          </button>
+        </nav>
+      </header>
+
+      {/* Mobile menu — outside header to avoid stacking context issues */}
+      <div
+        className={`md:hidden fixed inset-0 top-16 z-[200] transition-all duration-300 ${open ? "opacity-100 pointer-events-auto translate-y-0" : "opacity-0 pointer-events-none -translate-y-2"}`}
+        style={{ backgroundColor: "var(--color-bg)" }}
+      >
+        <ul className="flex flex-col px-6 pt-2 list-none overflow-y-auto h-full">
           {links.map(({ to, label }) => (
             <li key={to}>
               <NavLink
@@ -115,6 +118,6 @@ export default function Navbar() {
           </li>
         </ul>
       </div>
-    </header>
+    </>
   );
 }

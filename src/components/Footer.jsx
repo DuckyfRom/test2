@@ -89,6 +89,9 @@ export default function Footer() {
           <span className="text-xs text-muted">
             © 2025 ByteRack BV — Gent, België
           </span>
+          <span className="text-xs text-muted text-center sm:text-left">
+            This website is for educational purposes only.
+          </span>
           <div className="flex items-center gap-4">
             {["Privacybeleid", "Algemene Voorwaarden", "SLA"].map((l) => (
               <a
